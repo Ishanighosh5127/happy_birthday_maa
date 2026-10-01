@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Maa ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Welcome Popup -->
+
+<div id="welcomePopup" class="popup">
+
+    <div class="popup-content">
+
+        <h1>🎉 Happy Birthday Maa 🎉</h1>
+
+        <p>❤️ A Small Surprise Made With Love ❤️</p>
+
+        <button onclick="openWebsite()">
+            💖 Open Surprise 💖
+        </button>
+
+    </div>
+
+</div>
+
+<!-- Header -->
+
+<header>
+
+    <h1 class="glow">
+        🎂 Happy Birthday Maa ❤️
+    </h1>
+
+</header>
+<!-- Hero Section -->
+
+<section class="hero">
+
+    <img src="image/maa.jpg1.jpeg" alt="My Mother">
+
+    <h2>My First Friend, My Best Teacher ❤️</h2>
+
+    <p>
+        Happy Birthday Maa! <br><br>
+
+        Thank you for your endless love, care and sacrifices.
+        You are the most precious person in my life.
+    </p>
+
+</section>
+
+<!-- Message Card -->
+
+<section class="card">
+
+    <h2>💖 A Message For My Maa 💖</h2>
+
+    <p>
+        Dear Maa,<br><br>
+
+        Thank you for always believing in me,
+        supporting me and loving me unconditionally.<br><br>
+
+        Every smile of mine exists because of you.<br>
+
+        I pray that God always keeps you healthy,
+        happy and smiling.<br><br>
+
+        ❤️ Happy Birthday to the most wonderful mother in the world. ❤️
+    </p>
+
+</section>
+
+<!-- Gallery -->
+
+<section class="gallery">
+
+    <h2>📸 Beautiful Memories 📸</h2>
+
+    <div class="photos">
+
+        <img src="image/maa.jpg6.jpeg" alt="Memory 1">
+
+        <img src="image/maa.jpg3.jpeg" alt="Memory 2">
+
+        <img src="image/ma.jpg4.jpeg" alt="Memory 3">
+
+    </div>
+
+</section>
+<!-- Cake Section -->
+
+<section class="cake-section">
+
+    <h2>🎉 Make a Birthday Wish 🎉</h2>
+
+    <div class="cake-container">
+
+        <div class="cake">
+
+            <div class="candle">
+                <div class="flame" id="flame"></div>
+            </div>
+
+            <img src="image/cake.png.jpeg" alt="Birthday Cake" class="cake-img">
+
+        </div>
+
+    </div>
+
+    <button onclick="blowCandle()" class="wish-btn">
+        🎂 Blow the Candle
+    </button>
+
+    <p id="wishMessage">
+        🎉 Happy Birthday Maa! ❤️ <br>
+        May God bless you with happiness, good health and lots of smiles. 💖
+    </p>
+
+    <p class="cake-text">
+        ✨ Make a wish, blow the candle, and may all your dreams come true. 💖
+    </p>
+
+</section>
+<!-- Music -->
+<audio id="birthdayMusic" loop>
+    <source src="music/birthday.mp3.mpeg" type="audio/mpeg">
+</audio>
+
+<!-- Hearts -->
+
+<div class="hearts">
+    <span>❤️</span>
+    <span>💖</span>
+    <span>💕</span>
+    <span>💗</span>
+    <span>💝</span>
+</div>
+
+<!-- Balloons -->
+
+<div class="balloons">
+    <span>🎈</span>
+    <span>🎈</span>
+    <span>🎈</span>
+    <span>🎈</span>
+    <span>🎈</span>
+</div>
+
+<!-- Confetti Library -->
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<script>
+
+function openWebsite(){
+
+    document.getElementById("welcomePopup").style.display = "none";
+
+    // Music Start
+    document.getElementById("birthdayMusic").play();
+
+}
+
+function blowCandle(){
+
+    // Candle নিভে যাবে
+    document.getElementById("flame").style.display = "none";
+
+    // Birthday wish দেখাবে
+    document.getElementById("wishMessage").style.display = "block";
+
+    // Fireworks (8 seconds)
+    var duration = 1000;
+    var end = Date.now() + duration;
+
+    (function frame(){
+
+        confetti({
+            particleCount:6,
+            angle:60,
+            spread:70,
+            origin:{x:0}
+        });
+
+        confetti({
+            particleCount:6,
+            angle:120,
+            spread:70,
+            origin:{x:1}
+        });
+
+        if(Date.now() < end){
+            requestAnimationFrame(frame);
+        }
+
+    })();
+
+    // 8 সেকেন্ড পরে Ending Screen
+    setTimeout(showEnding, 8000);
+    setTimeout(showEnding, 8000);
+
+function showEnding(){
+
+    let screen = document.getElementById("endingScreen");
+    let count = document.getElementById("countdown");
+    let text = document.getElementById("finalText");
+
+    screen.style.display = "flex";
+    count.style.display = "block";
+    text.style.display = "none";
+
+    let num = 3;
+    count.innerHTML = num;
+
+    let timer = setInterval(function(){
+
+        num--;
+
+        if(num > 0){
+            count.innerHTML = num;
+        }else{
+            clearInterval(timer);
+            count.style.display = "none";
+            text.style.display = "block";
+        }
+
+    },1000);
+
+}
+
+}
+
+</script>
+
+<div id="endingScreen">
+
+    <div class="ending-content">
+
+        <h1 id="countdown">3</h1>
+
+        <h2 id="finalText">
+
+            ❤️<br><br>
+
+            Everything I am...<br><br>
+
+            is because of You.<br><br>
+
+            Thank You for every sacrifice.<br><br>
+
+            Thank You for every hug.<br><br>
+
+            Thank You for believing in me.<br><br>
+
+            🌹 Happy Birthday Maa 🌹<br><br>
+
+            I Love You Forever ❤️
+
+        </h2>
+
+        <p style="margin-top:40px;font-size:22px;color:pink;">
+            Made with ❤️ by Your Daughter
+        </p>
+
+    </div>
+
+</div>
+<div id="lastPage">
+
+    <h1>🌹 Thank You Maa 🌹</h1>
+
+    <h2>I Love You Forever ❤️</h2>
+
+    <p>
+        Every heartbeat of mine carries your love.<br><br>
+
+        Thank you for every sacrifice.<br><br>
+
+        Thank you for every prayer.<br><br>
+
+        Thank you for every smile.<br><br>
+
+        You are my greatest blessing.<br><br>
+
+        ❤️ Happy Birthday Maa ❤️
+    </p>
+
+    <h3>
+        Made with ❤️ by Your Daughter
+    </h3>
+
+</div>
+</body>
+</html>
